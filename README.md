@@ -12,4 +12,4 @@ More details to be added sometime, maybe.
 currently the ground station consists of a second feather with LoRa to receive the data sent by the one on the rocket.  That code is in the featherLoRaGroundStation folder
 
 ## Dashboard - node-red
-a node red dashboard running on the computer that the ground station is connected to can display the telemetry data sent by the rocket.  The flow for that is located in the node-red folder.
+a node red dashboard running on the computer that the ground station is connected to can display the telemetry data sent by the rocket.  The flow for that is located in the node-red folder. In addition to displaying the dashboard, the node-red flow will dump the received data out to a flat file for later analysis.
