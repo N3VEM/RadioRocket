@@ -1,0 +1,1182 @@
+[
+    {
+        "id": "bfbb7efe6d06fa58",
+        "type": "tab",
+        "label": "Ground Station",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1bedc896b0622a00",
+        "type": "json",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": true,
+        "x": 230,
+        "y": 960,
+        "wires": [
+            [
+                "d52764436b04b7fc",
+                "501db53cb051b9f9",
+                "c1513a8745913f52"
+            ]
+        ]
+    },
+    {
+        "id": "d52764436b04b7fc",
+        "type": "debug",
+        "z": "bfbb7efe6d06fa58",
+        "name": "incoming packet",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "ff34694380f629ea",
+        "type": "function",
+        "z": "bfbb7efe6d06fa58",
+        "name": "Callsign",
+        "func": "msg.payload = msg.payload.call\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 640,
+        "wires": [
+            [
+                "91501e712bdf4a6f"
+            ]
+        ]
+    },
+    {
+        "id": "91501e712bdf4a6f",
+        "type": "ui_text",
+        "z": "bfbb7efe6d06fa58",
+        "group": "58b351dc9b8dc0c6",
+        "order": 4,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Callsign",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 780,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "3eb6d93c4a4774e8",
+        "type": "function",
+        "z": "bfbb7efe6d06fa58",
+        "name": "Comments",
+        "func": "msg.payload = String(msg.payload.comnts)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 680,
+        "wires": [
+            [
+                "a5936524b95c350b"
+            ]
+        ]
+    },
+    {
+        "id": "ced090dc5f8ad24e",
+        "type": "function",
+        "z": "bfbb7efe6d06fa58",
+        "name": "Voltage",
+        "func": "msg.payload = String(msg.payload.VCC)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 720,
+        "wires": [
+            [
+                "963d908ca12be7ed"
+            ]
+        ]
+    },
+    {
+        "id": "70281b2ebd2a9cf7",
+        "type": "function",
+        "z": "bfbb7efe6d06fa58",
+        "name": "packetCount",
+        "func": "msg.payload = String(msg.payload.pktId)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 600,
+        "wires": [
+            [
+                "77071526a45eaacc"
+            ]
+        ]
+    },
+    {
+        "id": "15c9ab76b37b0374",
+        "type": "function",
+        "z": "bfbb7efe6d06fa58",
+        "name": "TempC",
+        "func": "msg.payload = String(msg.payload.tempC)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 760,
+        "wires": [
+            [
+                "62df0866b4a5fe2d"
+            ]
+        ]
+    },
+    {
+        "id": "77071526a45eaacc",
+        "type": "ui_text",
+        "z": "bfbb7efe6d06fa58",
+        "group": "58b351dc9b8dc0c6",
+        "order": 8,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Packet Count",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 800,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "963d908ca12be7ed",
+        "type": "ui_gauge",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "group": "58b351dc9b8dc0c6",
+        "order": 2,
+        "width": 4,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Power Supply",
+        "label": "Volts",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "6",
+        "colors": [
+            "#ca3838",
+            "#00e600",
+            "#00e600"
+        ],
+        "seg1": "3",
+        "seg2": "",
+        "className": "",
+        "x": 800,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "62df0866b4a5fe2d",
+        "type": "ui_gauge",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "group": "58b351dc9b8dc0c6",
+        "order": 1,
+        "width": 3,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Temp",
+        "label": "Celcius",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 770,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "51c11d9527667414",
+        "type": "ui_gauge",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "group": "2adfdfdee72328fb",
+        "order": 1,
+        "width": 4,
+        "height": 3,
+        "gtype": "gage",
+        "title": "X Axis",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-50",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#00b500",
+            "#00b500"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 790,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "a83646c6afa35c5a",
+        "type": "function",
+        "z": "bfbb7efe6d06fa58",
+        "name": "Accel X",
+        "func": "msg.payload = msg.payload.accel.x\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 820,
+        "wires": [
+            [
+                "51c11d9527667414",
+                "6737eca5abc8275c"
+            ]
+        ]
+    },
+    {
+        "id": "c0e08e021f5e207b",
+        "type": "function",
+        "z": "bfbb7efe6d06fa58",
+        "name": "Accel Z",
+        "func": "msg.payload = msg.payload.accel.z\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 980,
+        "wires": [
+            [
+                "5730968215bc1033",
+                "997e49a5c0d28727"
+            ]
+        ]
+    },
+    {
+        "id": "5730968215bc1033",
+        "type": "ui_gauge",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "group": "2adfdfdee72328fb",
+        "order": 5,
+        "width": 4,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Z Axis",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-50",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#00b500",
+            "#00b500"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 790,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "bae3f6e31cad40dd",
+        "type": "function",
+        "z": "bfbb7efe6d06fa58",
+        "name": "Accel Y",
+        "func": "msg.payload = msg.payload.accel.y\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 900,
+        "wires": [
+            [
+                "f7ee468ad69b4131",
+                "4ec95ae1a4b08543"
+            ]
+        ]
+    },
+    {
+        "id": "f7ee468ad69b4131",
+        "type": "ui_gauge",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "group": "2adfdfdee72328fb",
+        "order": 3,
+        "width": 4,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Y Axis",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-50",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#00b500",
+            "#00b500"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 790,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "a5936524b95c350b",
+        "type": "ui_text",
+        "z": "bfbb7efe6d06fa58",
+        "group": "58b351dc9b8dc0c6",
+        "order": 6,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Comments",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 790,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "6737eca5abc8275c",
+        "type": "ui_chart",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "group": "2adfdfdee72328fb",
+        "order": 2,
+        "width": 8,
+        "height": 3,
+        "label": "X History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 800,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4ec95ae1a4b08543",
+        "type": "ui_chart",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "group": "2adfdfdee72328fb",
+        "order": 4,
+        "width": 8,
+        "height": 3,
+        "label": "Y History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 800,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "997e49a5c0d28727",
+        "type": "ui_chart",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "group": "2adfdfdee72328fb",
+        "order": 6,
+        "width": 8,
+        "height": 3,
+        "label": "Z History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 800,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2630010a44af723c",
+        "type": "ui_gauge",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "group": "ce41d1a5f90b7f90",
+        "order": 1,
+        "width": 4,
+        "height": 3,
+        "gtype": "gage",
+        "title": "X Axis",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-50",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#00b500",
+            "#00b500"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 790,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "b304b71187071f27",
+        "type": "function",
+        "z": "bfbb7efe6d06fa58",
+        "name": "Mag X",
+        "func": "msg.payload = msg.payload.mag.x\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 1080,
+        "wires": [
+            [
+                "2630010a44af723c",
+                "52444664b2f32f29"
+            ]
+        ]
+    },
+    {
+        "id": "52444664b2f32f29",
+        "type": "ui_chart",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "group": "ce41d1a5f90b7f90",
+        "order": 2,
+        "width": 8,
+        "height": 3,
+        "label": "X History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 800,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c90bfddd14b2cf36",
+        "type": "ui_gauge",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "group": "ce41d1a5f90b7f90",
+        "order": 3,
+        "width": 4,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Y Axis",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-50",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#00b500",
+            "#00b500"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 790,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "5dd5ecf3fb635d62",
+        "type": "function",
+        "z": "bfbb7efe6d06fa58",
+        "name": "Mag Y",
+        "func": "msg.payload = msg.payload.mag.y\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 1160,
+        "wires": [
+            [
+                "c90bfddd14b2cf36",
+                "bfc2e4e395f060fe"
+            ]
+        ]
+    },
+    {
+        "id": "bfc2e4e395f060fe",
+        "type": "ui_chart",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "group": "ce41d1a5f90b7f90",
+        "order": 4,
+        "width": 8,
+        "height": 3,
+        "label": "Y History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 800,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b1372da71c1864fb",
+        "type": "ui_gauge",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "group": "ce41d1a5f90b7f90",
+        "order": 5,
+        "width": 4,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Z Axis",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-50",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#00b500",
+            "#00b500"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 790,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "43c69c6767c0d777",
+        "type": "function",
+        "z": "bfbb7efe6d06fa58",
+        "name": "Mag Z",
+        "func": "msg.payload = msg.payload.mag.z\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 1240,
+        "wires": [
+            [
+                "b1372da71c1864fb",
+                "1f061d5a3dcdacd2"
+            ]
+        ]
+    },
+    {
+        "id": "1f061d5a3dcdacd2",
+        "type": "ui_chart",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "group": "ce41d1a5f90b7f90",
+        "order": 6,
+        "width": 8,
+        "height": 3,
+        "label": "Z History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 800,
+        "y": 1280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "501db53cb051b9f9",
+        "type": "switch",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "property": "payload.pktType",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "BEACON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "MESSAGE",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 370,
+        "y": 960,
+        "wires": [
+            [
+                "70281b2ebd2a9cf7",
+                "ff34694380f629ea",
+                "3eb6d93c4a4774e8",
+                "ced090dc5f8ad24e",
+                "15c9ab76b37b0374",
+                "a83646c6afa35c5a",
+                "bae3f6e31cad40dd",
+                "c0e08e021f5e207b",
+                "b304b71187071f27",
+                "5dd5ecf3fb635d62",
+                "43c69c6767c0d777"
+            ],
+            [
+                "588d8bcb13696ed6"
+            ]
+        ]
+    },
+    {
+        "id": "588d8bcb13696ed6",
+        "type": "function",
+        "z": "bfbb7efe6d06fa58",
+        "name": "messages",
+        "func": "sender = msg.payload.call;\ntext = msg.payload.msg;\ndisplayMessages=\"<p align='left'>\";\n\nnewMessage = sender.concat(\": \", text);\n\n//flow.msgQueue = flow.msgQueue.concat(\"<p align='left'>\",newMessage, \"</p>\");\nnumMessages = flow.messageHistory.push(newMessage);\n\n\n\n    for (let i=numMessages-20; i<numMessages; i++)\n    {\n        if(flow.messageHistory[i])\n        {\n            displayMessages += flow.messageHistory[i] + \"</p><p align='left'>\";\n        }\n    }\n    \n    displayMessages += \"</p>\";\n    \nmsg.payload=displayMessages;        \nreturn msg;\n\n    \n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nflow.msgQueue = \"<p align='left'>Start of Messages</p>\";\nflow.messageHistory = [\"Start of Messages\"];",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1520,
+        "wires": [
+            [
+                "209f148c84e5268f",
+                "be6509831ff4d1dd"
+            ]
+        ]
+    },
+    {
+        "id": "209f148c84e5268f",
+        "type": "ui_text",
+        "z": "bfbb7efe6d06fa58",
+        "group": "9e1d5a866ceb4eb8",
+        "order": 1,
+        "width": 7,
+        "height": 12,
+        "name": "",
+        "label": "Messages",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 810,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "5fe2f4722edeefe0",
+        "type": "ui_text_input",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "label": "Input",
+        "tooltip": "",
+        "group": "9e1d5a866ceb4eb8",
+        "order": 2,
+        "width": 7,
+        "height": 1,
+        "passthru": true,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": false,
+        "className": "",
+        "topicType": "msg",
+        "x": 130,
+        "y": 1440,
+        "wires": [
+            [
+                "49e233877488c099",
+                "6fb3c9be2cad833f",
+                "0b5cc363e91935dc"
+            ]
+        ]
+    },
+    {
+        "id": "78834380353459ec",
+        "type": "serial in",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "serial": "94ae33de83558c9b",
+        "x": 90,
+        "y": 1100,
+        "wires": [
+            [
+                "1bedc896b0622a00"
+            ]
+        ]
+    },
+    {
+        "id": "49e233877488c099",
+        "type": "serial out",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "serial": "94ae33de83558c9b",
+        "x": 340,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "6fb3c9be2cad833f",
+        "type": "change",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 120,
+        "y": 1540,
+        "wires": [
+            [
+                "379c52f37bf21790"
+            ]
+        ]
+    },
+    {
+        "id": "379c52f37bf21790",
+        "type": "delay",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "250",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 290,
+        "y": 1540,
+        "wires": [
+            [
+                "5fe2f4722edeefe0"
+            ]
+        ]
+    },
+    {
+        "id": "be6509831ff4d1dd",
+        "type": "debug",
+        "z": "bfbb7efe6d06fa58",
+        "name": "message list",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "c1513a8745913f52",
+        "type": "function",
+        "z": "bfbb7efe6d06fa58",
+        "name": "messages",
+        "func": "\nreturn msg;\n    \n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nflow.msgList= \"<p align='left'>Start of Messages</p>\";\n",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 340,
+        "wires": [
+            [
+                "1638425d1658ba32",
+                "124269a962466c8f"
+            ]
+        ]
+    },
+    {
+        "id": "1638425d1658ba32",
+        "type": "ui_text",
+        "z": "bfbb7efe6d06fa58",
+        "group": "64c035b7f8821b93",
+        "order": 1,
+        "width": 30,
+        "height": 9,
+        "name": "",
+        "label": "Packets",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 500,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "124269a962466c8f",
+        "type": "file",
+        "z": "bfbb7efe6d06fa58",
+        "name": "",
+        "filename": "packetHistory.txt",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 520,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0b5cc363e91935dc",
+        "type": "debug",
+        "z": "bfbb7efe6d06fa58",
+        "name": "messages to send",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "11d652ae7e7f3cc1",
+        "type": "ui_spacer",
+        "z": "bfbb7efe6d06fa58",
+        "name": "spacer",
+        "group": "58b351dc9b8dc0c6",
+        "order": 3,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "df1068a091ae10d3",
+        "type": "ui_spacer",
+        "z": "bfbb7efe6d06fa58",
+        "name": "spacer",
+        "group": "58b351dc9b8dc0c6",
+        "order": 5,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "9909d3e5051715ea",
+        "type": "ui_spacer",
+        "z": "bfbb7efe6d06fa58",
+        "name": "spacer",
+        "group": "58b351dc9b8dc0c6",
+        "order": 7,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "58b351dc9b8dc0c6",
+        "type": "ui_group",
+        "name": "Info",
+        "tab": "e7cb74070611fb59",
+        "order": 1,
+        "disp": true,
+        "width": 24,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2adfdfdee72328fb",
+        "type": "ui_group",
+        "name": "Acceleration Data",
+        "tab": "e7cb74070611fb59",
+        "order": 3,
+        "disp": true,
+        "width": 12,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ce41d1a5f90b7f90",
+        "type": "ui_group",
+        "name": "Magnetometer Data",
+        "tab": "e7cb74070611fb59",
+        "order": 3,
+        "disp": true,
+        "width": 12,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9e1d5a866ceb4eb8",
+        "type": "ui_group",
+        "name": "Messages",
+        "tab": "e7cb74070611fb59",
+        "order": 4,
+        "disp": true,
+        "width": 7,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "94ae33de83558c9b",
+        "type": "serial-port",
+        "serialport": "/dev/ttyACM0",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "\\n",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "64c035b7f8821b93",
+        "type": "ui_group",
+        "name": "Packets",
+        "tab": "4f888ad96477492a",
+        "order": 1,
+        "disp": true,
+        "width": 30,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e7cb74070611fb59",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "4f888ad96477492a",
+        "type": "ui_tab",
+        "name": "Raw Packet Data",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
