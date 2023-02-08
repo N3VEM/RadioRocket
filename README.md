@@ -1,5 +1,6 @@
 # RadioRocket
-This repository will contain information related to my [radio rocket project.](https://n3vem.com/rocket)
+This repository will contains information related to version 1 of my [radio rocket project.](https://n3vem.com/rocket)
+This rocket crashed on it's first flight, so I'm now in the process of building version 2 - i.e. this repository is here for historical info - you'll likely want to refer to the repository for version 2!
 
 ## LightAPRS - In the Rocket
 The rocket currently contains a lightAPRS. Light APRS is set up according to the information available on the [lightAPRS github page.](https://github.com/lightaprs/LightAPRS-1.0) The code located here is simply the lightAPRS-hab code available there, but with a few minor tweaks to maximize the number of packets sent, and to disable the path details, so that the packets won't get digipeated and cause a flood of APRS traffic during the rockets flight.
